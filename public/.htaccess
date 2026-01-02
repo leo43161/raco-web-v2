@@ -1,0 +1,9 @@
+RewriteEngine On
+# Si el archivo o carpeta existe físicamente, servirlo
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Si no existe (rutas internas de Next), intentar cargar el .html correspondiente
+RewriteRule ^(.*)$ $1.html [L,QSA]
+
+# Manejo de errores dentro de la v2
+ErrorDocument 404 /v2/404.html
