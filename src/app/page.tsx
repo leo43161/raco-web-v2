@@ -24,7 +24,7 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden shadow-2xl mx-0 mt-0 pb-14 rounded-b-[3rem] border-b-8 border-naranja">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/img/home/hero.jpg"
+            src={"img/home/hero.jpg"}
             alt="Paisaje de Raco"
             fill
             className="object-cover"
