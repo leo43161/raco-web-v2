@@ -1,115 +1,179 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mountain, BookOpen, Phone, Instagram, Facebook, ArrowRight } from "lucide-react";
+import { 
+  Calendar, 
+  Phone, 
+  Trash2, 
+  Bus, 
+  Sun,
+  Info,
+  Shovel,
+  AlertTriangle,
+  CheckCircle2
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import ActivitiesSection from "@/components/ActivitiesSection"; // <--- Importación nueva
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900 selection:bg-green-100 dark:bg-zinc-950 dark:text-zinc-50">
+    <main className="bg-background min-h-screen text-foreground font-sans selection:bg-naranja-light selection:text-white pb-20">
       
-      {/* Fondo con sutil gradiente institucional */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-[10%] -left-[10%] h-[40%] w-[40%] rounded-full bg-[#5a8b5e]/10 blur-[120px]" />
-        <div className="absolute top-[20%] -right-[10%] h-[50%] w-[50%] rounded-full bg-[#e67e22]/5 blur-[120px]" />
-      </div>
-
-      <main className="container mx-auto flex min-h-screen flex-col items-center justify-center px-6 py-20">
-        
-        {/* Status Badge */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-6 flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-4 py-1.5 text-xs font-medium dark:border-zinc-800 dark:bg-zinc-900/50"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#5a8b5e]"></span>
-          </span>
-          PROYECTO EN DESARROLLO · FASE 1: VERANO 2026
-        </motion.div>
-
-        {/* Hero Section */}
-        <div className="text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-6xl font-extrabold tracking-tight sm:text-8xl"
-          >
-            Raco <span className="text-[#5a8b5e]">Digital</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto mt-8 max-w-xl text-lg text-zinc-600 dark:text-zinc-400"
-          >
-            Estamos preparando la nueva plataforma oficial. Todo lo que necesitás para vivir Raco este verano, en un solo lugar.
-          </motion.p>
+      {/* --- HERO SECTION --- */}
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden shadow-2xl mx-0 mt-0 pb-14 rounded-b-[3rem] border-b-8 border-naranja">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/img/home/hero.jpg"
+            alt="Paisaje de Raco"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-primary/40 mix-blend-multiply z-10" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent z-10" />
         </div>
 
-        {/* Las dos tarjetas solicitadas por el cliente */}
-        <div className="mt-16 grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
-          
-          {/* Tarjeta 1: Excursiones */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="group relative overflow-hidden rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
+        <div className="container relative z-20 px-6 text-center text-white mt-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-[#5a8b5e] dark:bg-green-900/20">
-              <Mountain size={24} />
+            <div className="inline-flex items-center gap-2 bg-naranja text-white px-6 py-2 rounded-full font-bold shadow-lg mb-6 transform -rotate-2 hover:rotate-0 transition-transform cursor-default border border-white/20">
+              <Sun size={18} fill="currentColor" className="text-yellow-200" />
+              TEMPORADA 2026
             </div>
-            <h3 className="text-2xl font-bold">Excursiones</h3>
-            <p className="mt-3 text-zinc-500 dark:text-zinc-400">
-              Agenda completa de trekking, cabalgatas y actividades de montaña para esta temporada.
+
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg leading-tight">
+              Bienvenidos a<br/><span className="text-secondary font-black italic">Raco</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-100 font-medium mb-10 text-shadow-sm">
+              Naturaleza, cultura y tranquilidad. Tu guía oficial para disfrutar de los cerros tucumanos.
             </p>
-            <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-[#5a8b5e]">
-              PRÓXIMAMENTE <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link 
+                href="#agenda" 
+                className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-green-800 text-white rounded-2xl font-bold transition-all shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 border-b-4 border-green-900"
+              >
+                <Calendar size={22} />
+                Agenda 2026
+              </Link>
+              <Link 
+                href="/veraneantes" 
+                className="w-full sm:w-auto px-8 py-4 bg-white text-primary hover:bg-gray-50 rounded-2xl font-bold transition-all shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 border-b-4 border-gray-300"
+              >
+                <Info size={22} />
+                Guía del Veraneante
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- SECCIÓN URGENTE: Notas adhesivas --- */}
+      <section className="container mx-auto px-4 -mt-16 relative z-30 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white p-6 rounded-3xl shadow-xl border-l-8 border-naranja hover:shadow-2xl transition-all"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-orange-100 p-3 rounded-2xl text-naranja">
+                <Trash2 size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 leading-tight">Residuos<br/>Domiciliarios</h3>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-4 text-sm font-medium text-gray-600 space-y-3">
+              <p className="flex justify-between font-bold text-gray-800 border-b border-gray-200 pb-2">
+                <span>Lun - Mié - Vie</span>
+                <span>07:00 - 09:00</span>
+              </p>
+              <div className="space-y-1">
+                <p className="text-naranja font-bold text-xs uppercase flex items-center gap-2">
+                  <CheckCircle2 size={14}/> Separá: Secos y Húmedos
+                </p>
+                <p className="text-gray-500 text-xs">Usá los cestos correspondientes.</p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Tarjeta 2: Guía de Veraniegos */}
           <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="group relative overflow-hidden rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-white p-6 rounded-3xl shadow-xl border-l-8 border-primary hover:shadow-2xl transition-all"
           >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-50 text-[#e67e22] dark:bg-orange-900/20">
-              <BookOpen size={24} />
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-green-100 p-3 rounded-2xl text-primary">
+                <Shovel size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 leading-tight">Frentes y<br/>Cunetas</h3>
             </div>
-            <h3 className="text-2xl font-bold">Guía de Veraniegos</h3>
-            <p className="mt-3 text-zinc-500 dark:text-zinc-400">
-              Información útil: horarios de colectivos, recolección de residuos y servicios esenciales.
-            </p>
-            <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-[#e67e22]">
-              EN PREPARACIÓN <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            <ul className="text-sm text-gray-600 space-y-2 mb-2 pl-1">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
+                <span>Mantener frente desmalezado.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <AlertTriangle size={16} className="text-naranja mt-0.5 shrink-0" />
+                <span><strong>Obligatorio:</strong> Tubo de desagüe en acceso vehicular.</span>
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-white p-6 rounded-3xl shadow-xl border-l-8 border-rojo hover:shadow-2xl transition-all flex flex-col"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-red-50 p-3 rounded-2xl text-rojo">
+                <Phone size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 leading-tight">Emergencias<br/>y Guardia</h3>
             </div>
+            <p className="text-gray-500 text-sm mb-4">CAPS Raco y Comuna Rural.<br/>Atención las 24hs.</p>
+            <a href="tel:3816908950" className="mt-auto w-full py-3 rounded-xl bg-rojo text-white font-bold text-sm hover:bg-red-700 transition-colors flex justify-center items-center gap-2 shadow-md">
+              Llamar Ahora
+            </a>
           </motion.div>
 
         </div>
+      </section>
 
-        {/* Footer simple */}
-        <motion.footer 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-20 flex flex-col items-center gap-6"
-        >
-          <div className="flex gap-6 text-zinc-400">
-            <a href="https://instagram.com/comunaderaco" className="hover:text-[#5a8b5e] transition-colors"><Instagram size={20} /></a>
-            <a href="#" className="hover:text-[#5a8b5e] transition-colors"><Facebook size={20} /></a>
-            <a href="tel:+5493816908950" className="hover:text-[#5a8b5e] transition-colors"><Phone size={20} /></a>
+      {/* --- SECCIÓN AGENDA (COMPONENTE NUEVO) --- */}
+      {/* <ActivitiesSection /> */}
+
+      {/* <section className="container mx-auto px-6 text-center mb-10">
+        <div className="bg-primary rounded-[2.5rem] p-10 md:p-14 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -mr-20 -mt-20 blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-naranja opacity-20 rounded-full -ml-10 -mb-10 blur-2xl" />
+          
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">¿Tenés dudas?</h2>
+            <p className="text-green-100 mb-8 max-w-xl mx-auto text-lg">
+              Escribinos para consultar sobre el estado de las rutas, horarios de colectivo o trámites comunales.
+            </p>
+            <a 
+              href="https://wa.me/5493816908950" 
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary rounded-full font-bold text-lg hover:bg-gray-100 transition-all hover:scale-105 shadow-xl"
+            >
+              <Phone size={20} fill="currentColor" className="text-primary" />
+              Chat Oficial Comuna
+            </a>
           </div>
-          <p className="text-xs font-medium uppercase tracking-widest text-zinc-400">
-            Comuna de Raco · 2026
-          </p>
-        </motion.footer>
+        </div>
+      </section> */}
 
-      </main>
-    </div>
+    </main>
   );
 }
