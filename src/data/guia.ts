@@ -36,13 +36,12 @@ export const DATA_CAPS: InfoCAPS[] = [
     ubicacion: "Ruta 340 km 14 (Valle de San Javier)",
     horarios: [
       "Pediatra: Lunes a Viernes (07:00 a 13:00 hs).",
-      "Médico Clínico: Miércoles (Mañana y Tarde).",
       "Enfermería: Lunes a Viernes (Mañana y Tarde)."
     ],
     contacto: "3815662715"
   },
   {
-    nombre: "CAPS Marga",
+    nombre: "CAPS CARLOS MURGA",
     ubicacion: "Ruta 341 km 30 (El Siambón)",
     horarios: [
       "Abierto: Lunes a Viernes (07:30 a 19:00 hs).",
@@ -60,8 +59,12 @@ export const DATA_RESIDUOS_SECOS: CronogramaResiduos[] = [
   { dia: "Jueves", zona: "Desde el Cementerio hasta Las Tuquitas." },
   { dia: "Viernes", zona: "Valle de San Javier." }
 ];
+export const DATA_RESIDUOS_HUMEDOS: CronogramaResiduos[] = [
+  { dia: "Lunes a Viernes", zona: "Antes de las 7:00 hs" }
+];
 
 export const NOTA_RESIDUOS = "Los residuos secos deben depositarse después de las 12:00 hs. Para residuos especiales (chatarra o escombros), comunicarse con la Comuna.";
+export const NOTA_RESIDUOS_HUMEDOS = "FUERA DE ESTE HORARIO TE RECOMENDAMOS, NO SACAR TUS RESIDUOS PARA EVITAR BASURALES Y MULTAS";
 
 // --- 3. TEXTOS NORMATIVOS Y CONVIVENCIA ---
 export const DATA_NORMATIVAS: SeccionGuia[] = [

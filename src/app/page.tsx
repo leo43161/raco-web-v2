@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Calendar, 
-  Trash2, 
-  Bus, 
+import {
+  Calendar,
+  Trash2,
+  Bus,
   Sun,
   Info,
   Phone,
@@ -24,11 +24,11 @@ import { TELEFONOS } from "@/data/guia";
 export default function Home() {
   return (
     <main className="bg-background min-h-screen text-foreground font-sans selection:bg-naranja-light selection:text-white pb-20">
-      
+
       {/* --- 1. HERO INSTITUCIONAL --- */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden shadow-2xl mx-0 mt-0 pb-14 rounded-b-[3rem] border-b-8 border-naranja">
+      <section className="relative h-min-[85vh] flex items-center justify-center overflow-hidden shadow-2xl mx-0 mt-0 pb-14 rounded-b-[3rem] border-b-8 border-naranja">
         <div className="absolute inset-0 z-0">
-          <Image 
+          <Image
             src="/img/home/hero.jpg"
             alt="Paisaje de Raco"
             fill
@@ -50,26 +50,37 @@ export default function Home() {
               TEMPORADA 2026
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg leading-tight">
-              Bienvenidos a la<br/>
+            <div className="flex justify-center items-center">
+              <Image
+                src="/img/home/raco_isologo.png"
+                alt="Paisaje de Raco"
+                className="object-contain"
+                priority
+                height={300}
+                width={300}
+              />
+            </div>
+
+            {/* <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg leading-tight">
+              Bienvenidos a la<br />
               <span className="text-secondary font-black italic">Comuna de Raco</span>
-            </h1>
-            
+            </h1> */}
+
             {/* TEXTO CON MÁS ONDA Y GRANDE */}
-            <p className="text-2xl md:text-3xl max-w-2xl mx-auto text-white font-medium italic mb-12 text-shadow-md tracking-wide">
+            <p className="text-2xl md:text-3xl max-w-2xl mx-auto text-white font-medium italic mb-8 md:mb-12 text-shadow-md tracking-wide">
               "Naturaleza, cultura y tranquilidad"
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link 
-                href="#agenda" 
+              <Link
+                href="#agenda"
                 className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-green-800 text-white rounded-2xl font-bold transition-all shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 border-b-4 border-green-900"
               >
                 <Calendar size={20} />
                 Actividades Verano 2026
               </Link>
-              <Link 
-                href="/veraneantes" 
+              <Link
+                href="/veraneantes"
                 className="w-full sm:w-auto px-8 py-4 bg-white text-primary hover:bg-gray-50 rounded-2xl font-bold transition-all shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 border-b-4 border-gray-300"
               >
                 <Info size={20} />
@@ -82,35 +93,35 @@ export default function Home() {
 
       {/* --- 2. ZONA DE ACCIÓN (TABLERO DE SERVICIOS) --- */}
       <section className="container mx-auto px-4 mt-4 relative z-30 mb-20">
-        
+
         {/* GRUPO 1: SERVICIOS DIARIOS */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
           <Link href="/veraneantes#residuos" className="bg-white p-4 rounded-3xl shadow-lg border-b-4 border-naranja hover:scale-105 transition-all flex flex-col items-center text-center gap-2">
             <div className="bg-orange-100 p-3 rounded-full text-naranja">
               <Trash2 size={24} />
             </div>
-            <span className="text-sm font-bold text-gray-700 leading-tight">Recolección<br/>de Residuos</span>
+            <span className="text-sm font-bold text-gray-700 leading-tight">Recolección<br />de Residuos</span>
           </Link>
 
           <Link href="/veraneantes#transito" className="bg-white p-4 rounded-3xl shadow-lg border-b-4 border-blue-400 hover:scale-105 transition-all flex flex-col items-center text-center gap-2">
             <div className="bg-blue-100 p-3 rounded-full text-blue-600">
               <Bus size={24} />
             </div>
-            <span className="text-sm font-bold text-gray-700 leading-tight">Horarios<br/>Colectivo</span>
+            <span className="text-sm font-bold text-gray-700 leading-tight">Horarios<br />Colectivo</span>
           </Link>
 
           <a href={`https://wa.me/${TELEFONOS.comuna}`} target="_blank" className="bg-white p-4 rounded-3xl shadow-lg border-b-4 border-green-500 hover:scale-105 transition-all flex flex-col items-center text-center gap-2">
             <div className="bg-green-100 p-3 rounded-full text-green-600">
               <MessageCircle size={24} />
             </div>
-            <span className="text-sm font-bold text-gray-700 leading-tight">Contacto<br/>Comuna</span>
+            <span className="text-sm font-bold text-gray-700 leading-tight">Contacto<br />Comuna</span>
           </a>
 
           <Link href="#catalogo" className="bg-white p-4 rounded-3xl shadow-lg border-b-4 border-purple-400 hover:scale-105 transition-all flex flex-col items-center text-center gap-2">
             <div className="bg-purple-100 p-3 rounded-full text-purple-600">
               <Store size={24} />
             </div>
-            <span className="text-sm font-bold text-gray-700 leading-tight">Catálogo<br/>Servicios</span>
+            <span className="text-sm font-bold text-gray-700 leading-tight">Catálogo<br />Servicios</span>
           </Link>
         </div>
 
@@ -137,7 +148,7 @@ export default function Home() {
           </a>
 
           <div className="flex flex-col gap-2">
-             <a href={`tel:${TELEFONOS.comisaria}`} className="flex items-center gap-4 bg-blue-50 p-4 rounded-2xl border border-blue-100 hover:bg-blue-100 transition-colors">
+            <a href={`tel:${TELEFONOS.comisaria}`} className="flex items-center gap-4 bg-blue-50 p-4 rounded-2xl border border-blue-100 hover:bg-blue-100 transition-colors">
               <div className="bg-blue-600 text-white p-3 rounded-xl shadow-md">
                 <ShieldAlert size={24} />
               </div>
@@ -151,7 +162,7 @@ export default function Home() {
 
         {/* GRUPO 3: CONCIENTIZACIÓN (Ahora "A prueba de tontos") */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          
+
           <Link href="/veraneantes#estafas" className="group flex items-center justify-between bg-yellow-50 px-5 py-4 rounded-xl border border-yellow-200 text-yellow-900 hover:bg-yellow-100 transition-colors shadow-sm">
             <div className="flex items-center gap-3">
               <AlertTriangle size={24} className="text-yellow-600 shrink-0" />
