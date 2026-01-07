@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* --- 2. ZONA DE ACCIÓN (TABLERO DE SERVICIOS) --- */}
-      <section className="container mx-auto px-4 -mt-16 relative z-30 mb-20">
+      <section className="container mx-auto px-4 mt-4 relative z-30 mb-20">
         
         {/* GRUPO 1: SERVICIOS DIARIOS */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
