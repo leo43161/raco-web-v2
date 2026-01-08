@@ -20,6 +20,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ActivitiesSection from "@/components/ActivitiesSection";
 import { TELEFONOS } from "@/data/guia";
+import ServicesSection from "@/components/ServicesSection";
 
 export default function Home() {
   return (
@@ -92,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* --- 2. ZONA DE ACCIÓN (TABLERO DE SERVICIOS) --- */}
-      <section className="container mx-auto px-4 mt-4 relative z-30 mb-20">
+      <section className="container mx-auto px-4 mt-4 relative z-30 mb-10">
 
         {/* GRUPO 1: SERVICIOS DIARIOS */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
@@ -103,7 +104,7 @@ export default function Home() {
             <span className="text-sm font-bold text-gray-700 leading-tight">Recolección<br />de Residuos</span>
           </Link>
 
-          <Link href="/veraneantes#transito" className="bg-white p-4 rounded-3xl shadow-lg border-b-4 border-blue-400 hover:scale-105 transition-all flex flex-col items-center text-center gap-2">
+          <Link href="/veraneantes#colectivos" className="bg-white p-4 rounded-3xl shadow-lg border-b-4 border-blue-400 hover:scale-105 transition-all flex flex-col items-center text-center gap-2">
             <div className="bg-blue-100 p-3 rounded-full text-blue-600">
               <Bus size={24} />
             </div>
@@ -207,9 +208,8 @@ export default function Home() {
       </section>
 
       {/* --- 3. AGENDA (COMENTADA POR AHORA) --- */}
-      {/* <ActivitiesSection />
-      */}
-
+      <ActivitiesSection />
+      {/* <ServicesSection /> */}
     </main>
   );
 }
