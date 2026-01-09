@@ -65,7 +65,7 @@ export default function GuiaVecino() {
             {/* Placa Grande de Horario */}
             <div className="bg-background p-8 rounded-2xl border-2 border-dashed border-naranja/30 text-center mb-6">
               <span className="block text-naranja font-black text-2xl md:text-4xl mb-2 uppercase italic">
-                Lunes a Viernes
+                Lunes - Miercoles - Viernes
               </span>
               <p className="text-xl md:text-2xl font-bold text-gray-700 leading-snug">
                 Antes de las 07:00 AM
@@ -75,7 +75,7 @@ export default function GuiaVecino() {
             {/* Advertencia Pedida */}
             <div className="bg-red-50 p-6 rounded-2xl border-l-4 border-red-500">
               <p className="text-red-800 font-bold text-center italic text-sm md:text-base">
-                "Fuera de este horario te recomendamos no sacar tu residuo para evitar basurales y multas."
+                "Fuera de este horario te recomendamos no sacar tus residuos para evitar basurales y multas."
               </p>
             </div>
           </div>
