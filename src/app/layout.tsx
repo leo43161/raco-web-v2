@@ -23,17 +23,34 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+// ... (tus imports y configuraciones de fuentes permanecen igual)
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://raco.gob.ar"),
   title: "Comuna de Raco - Portal Oficial 2026",
   description: "Agenda de Verano, servicios al veraneante y gestión comunal. Viví Raco.",
   authors: [{ name: "Leonardo Palavecino" }],
+  
+  // --- CONFIGURACIÓN DE ICONOS ---
+  icons: {
+    icon: [
+      { url: "/img/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/img/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/img/favicon/favicon.ico" },
+    ],
+    apple: [
+      { url: "/img/favicon/apple-touch-icon.png" },
+    ],
+  },
+  manifest: "/img/favicon/site.webmanifest",
+  // -------------------------------
+
   openGraph: {
     title: "Comuna de Raco - Portal Oficial",
     description: "Información útil, servicios y actividades de verano 2026.",
     url: "/",
     siteName: "Comuna de Raco",
-    images: "/imagenes/raco_isologo.png", // Asegúrate de tener esta imagen en public
+    images: "/imagenes/raco_isologo.png", 
     locale: "es_AR",
     type: "website",
   },
@@ -43,6 +60,7 @@ export const metadata: Metadata = {
     description: "Gestión y Turismo en Raco.",
   },
 };
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
