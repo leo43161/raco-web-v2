@@ -209,7 +209,7 @@ export default function Home() {
 
       {/* --- 3. AGENDA (COMENTADA POR AHORA) --- */}
       <ActivitiesSection />
-      {/* <ServicesSection /> */}
+      <ServicesSection />
     </main>
   );
 }
