@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from "next";
 import { Poppins, Caveat } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import Footer from "@/components/Footer";
 
 // Optimizamos la carga de fuentes (Self-hosted por Next.js)
 const poppins = Poppins({
@@ -23,14 +25,12 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-// ... (tus imports y configuraciones de fuentes permanecen igual)
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://raco.gob.ar"),
   title: "Comuna de Raco - Portal Oficial 2026",
   description: "Agenda de Verano, servicios al veraneante y gestión comunal. Viví Raco.",
   authors: [{ name: "Leonardo Palavecino" }],
-  
+
   // --- CONFIGURACIÓN DE ICONOS ---
   icons: {
     icon: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     description: "Información útil, servicios y actividades de verano 2026.",
     url: "/",
     siteName: "Comuna de Raco",
-    images: "/imagenes/raco_isologo.png", 
+    images: "/imagenes/raco_isologo.png",
     locale: "es_AR",
     type: "website",
   },
@@ -63,11 +63,16 @@ export const metadata: Metadata = {
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const GA_ID = /* process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || */ "G-97DP7XYX3X";
   return (
     <html lang="es" className={`${poppins.variable} ${caveat.variable}`}>
       <body className="antialiased bg-[#fcfcfc] text-zinc-900 overflow-x-hidden">
         <SmoothScroll>
           {children}
+          <Footer />
+
+          {/* Solo carga Analytics si hay un ID configurado */}
+          {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
         </SmoothScroll>
       </body>
     </html>

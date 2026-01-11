@@ -10,6 +10,7 @@
     "deploy": "node deploy.js"
   },
   "dependencies": {
+    "@next/third-parties": "^16.1.1",
     "framer-motion": "^12.23.26",
     "lenis": "^1.3.17",
     "lucide-react": "^0.562.0",
