@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
-
+import IconWhatsapp from "../icon/whatsapp.svg";
+import { ReactSVG } from "react-svg";
+console.log(IconWhatsapp);
 export default function Footer() {
   return (
     <footer className="bg-primary text-white pt-16 pb-8 border-t-8 border-naranja-light">
       <div className="container mx-auto px-6">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          
+
           {/* 1. Identidad */}
           <div>
             <h3 className="text-2xl font-black italic mb-4">COMUNA DE RACO</h3>
@@ -21,8 +23,18 @@ export default function Footer() {
               <a href="https://www.instagram.com/comunaderaco/" className="p-2 bg-naranja-light rounded-full hover:bg-primary transition-colors text-white">
                 <Instagram size={20} />
               </a>
-              <a href="https://www.facebook.com/RacoTucuman" className="p-2 bg-naranja-light rounded-full hover:bg-blue-600 transition-colors text-white">
+              <a href="https://web.facebook.com/comunaraco" className="p-2 bg-naranja-light rounded-full hover:bg-blue-600 transition-colors text-white">
                 <Facebook size={20} />
+              </a>
+              <a href="https://wa.me/5493816908950" className="p-2 bg-naranja-light rounded-full hover:bg-blue-600 transition-colors text-white">
+                <ReactSVG
+                  beforeInjection={(svg) => {
+                    svg.setAttribute('style', 'fill: #ffffff');
+                    svg.setAttribute('width', '20px');
+                    svg.setAttribute('height', '20px');
+                  }}
+                  src={"img/icon/whatsapp.svg"}
+                />
               </a>
             </div>
           </div>
@@ -52,7 +64,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-white-400">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-naranja-light mt-0.5 shrink-0" />
-                <span>Ruta 341 Km 24<br/>Raco, Tucumán</span>
+                <span>Ruta 341 Km 24<br />Raco, Tucumán</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-naranja-light shrink-0" />
