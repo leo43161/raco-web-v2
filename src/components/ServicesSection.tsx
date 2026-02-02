@@ -105,7 +105,13 @@ const DATA_SERVICIOS: ServiceCategory[] = [
             { name: "Trabajos de Albañilería y Mantenimiento de Jardines", contactName: "Jorge Delgado", phone: "3812452997" },
             { name: "Trabajos de Albañilería y Jardinería", phone: "3812453025" },
             { name: "Lavado y Aspirado de Autos, Camionetas y Motos", phone: "3812093935" },
-            { name: "Jardinería", phone: "3815706162" }
+            { name: "Jardinería", phone: "3815706162" },
+            // --- NUEVOS AGREGADOS ---
+            { name: "Taller Mecánico", contactName: "Gabriel Centeno", phone: "3813360340", location: "Ruta 340 Km 19 (El Portezuelo - Valle de San Javier)" },
+            { name: "Chapista Automotor / Herrería", contactName: "Carlos Olea", phone: "3815793024", location: "Ex Ruta 341 Km 17 (Al lado de vialidad)" },
+            { name: "Julio Carrazano", phone: "3816789472", location: "Atahualpa Yupanki Km 20, Raco" },
+            { name: "Hugo Erazo", phone: "3815467085", location: "Ruta 341 Km 29.5, El Siambón" },
+            { name: "Leo Olea", location: "Ruta 340 Km 19 (El Portezuelo - Valle de San Javier)" }
         ]
     },
     {
