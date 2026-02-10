@@ -24,7 +24,7 @@ export default function GuiaVecino() {
 
       {/* --- HEADER --- */}
       <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="container mx-auto px-6 h-10 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors">
             <ArrowLeft size={20} />
             Volver
@@ -34,9 +34,9 @@ export default function GuiaVecino() {
       </header>
 
       {/* --- HERO DE SECCIÓN --- */}
-      <section className="bg-primary py-12 px-6 text-center text-white rounded-b-[3rem] shadow-xl">
+      <section className="bg-primary py-5 px-6 text-center text-white shadow-xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h2 className="text-4xl md:text-5xl font-black mb-4">Información Oficial</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-2">Información Oficial</h2>
           <p className="text-green-100 max-w-2xl mx-auto text-lg">
             Todo lo que necesitás saber para convivir y disfrutar en la Comuna de Raco.
           </p>
@@ -55,10 +55,10 @@ export default function GuiaVecino() {
 
         {/* --- RECOLECCIÓN DE RESIDUOS HÚMEDOS (Modificado según Marcos) --- */}
         <section className="bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100">
-          <div id="residuos" className="bg-zinc-900 p-6 text-white text-center">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-2">
+          <div id="residuos" className="bg-zinc-900 px-6 py-4 text-white text-center">
+            <div className="flex flex-row md:flex-row items-center justify-center gap-4">
               <Trash2 size={32} />
-              <h3 className="text-xl md:text-3xl font-black italic uppercase">Recolección de Residuos Húmedos</h3>
+              <h3 className="text-xl md:text-3xl font-black italic uppercase mb-0">Recolección de Residuos Húmedos</h3>
             </div>
           </div>
           <div className="p-6 md:p-10">
