@@ -65,7 +65,7 @@ export default function GuiaVecino() {
             {/* Placa Grande de Horario */}
             <div className="bg-background p-8 rounded-2xl border-2 border-dashed border-naranja/30 text-center mb-6">
               <span className="block text-naranja font-black text-2xl md:text-4xl mb-2 uppercase italic">
-                Lunes - Miercoles - Viernes
+                Lunes y Viernes
               </span>
               <p className="text-xl md:text-2xl font-bold text-gray-700 leading-snug">
                 Antes de las 07:00 AM
