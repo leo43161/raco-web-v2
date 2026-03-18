@@ -11,10 +11,11 @@ import Link from "next/link";
 import {
   DATA_CAPS,
   DATA_RESIDUOS_SECOS,
-  DATA_RESIDUOS_HUMEDOS, // Aunque lo importamos, voy a hardcodear el texto que pidió Marcos para Húmedos
+  DATA_RESIDUOS_HUMEDOS,
   DATA_NORMATIVAS,
   TELEFONOS,
   NOTA_RESIDUOS,
+  NOTA_RESIDUOS_HUMEDOS,
   DATA_AMBULANCIA
 } from "@/data/guia";
 
@@ -45,7 +46,7 @@ export default function GuiaVecino() {
 
       <div className="container mx-auto px-4 mt-5 space-y-6">
 
-        {/* Banner Obligatorio (Pedido: Mantenerlo) */}
+        {/* Banner Obligatorio */}
         <div className="bg-red-600 text-white p-4 rounded-2xl flex items-center justify-center shadow-lg text-center">
           <h2 className="font-bold text-sm md:text-base uppercase tracking-tight">
             ESTIMADO VECINO, COMUNICAMOS QUE ES
@@ -53,7 +54,7 @@ export default function GuiaVecino() {
           </h2>
         </div>
 
-        {/* --- RECOLECCIÓN DE RESIDUOS HÚMEDOS (Modificado según Marcos) --- */}
+        {/* --- RECOLECCIÓN DE RESIDUOS HÚMEDOS --- */}
         <section className="bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100">
           <div id="residuos" className="bg-zinc-900 px-6 py-4 text-white text-center">
             <div className="flex flex-row md:flex-row items-center justify-center gap-4">
@@ -68,14 +69,14 @@ export default function GuiaVecino() {
                 Lunes y Viernes
               </span>
               <p className="text-xl md:text-2xl font-bold text-gray-700 leading-snug">
-                Antes de las 07:00 AM
+                A partir de las 08:00 hs
               </p>
             </div>
 
-            {/* Advertencia Pedida */}
+            {/* Advertencia */}
             <div className="bg-red-50 p-6 rounded-2xl border-l-4 border-red-500">
               <p className="text-red-800 font-bold text-center italic text-sm md:text-base">
-                "Fuera de este horario te recomendamos no sacar tus residuos para evitar basurales y multas."
+                "{NOTA_RESIDUOS_HUMEDOS}"
               </p>
             </div>
           </div>
@@ -114,7 +115,7 @@ export default function GuiaVecino() {
           </div>
         </section>
 
-        {/* --- FRENTES Y CUNETAS (SECCIÓN GRANDE - Pedido Marcos) --- */}
+        {/* --- FRENTES Y CUNETAS --- */}
         <section className="bg-white p-8 rounded-[2.5rem] shadow-xl border-l-8 border-primary">
           <div className="flex items-center gap-4 mb-6 flex-col md:flex-row">
             <div className="bg-green-100 p-3 rounded-2xl text-primary">
@@ -172,7 +173,7 @@ export default function GuiaVecino() {
           </div>
         </section>
 
-        {/* --- LICENCIA DE MANEJO (Sección Nueva - Pedido Marcos) --- */}
+        {/* --- LICENCIA DE MANEJO --- */}
         <section className="bg-white p-8 rounded-[2.5rem] shadow-xl border-l-8 border-blue-500">
           <div className="flex items-center gap-4 mb-4">
             <div className="bg-blue-100 p-3 rounded-2xl text-blue-600">
@@ -210,7 +211,12 @@ export default function GuiaVecino() {
 
               <div className="space-y-4 mb-6">
                 {norma.contenido.map((p, i) => (
-                  <p key={i} className="text-gray-600 text-sm leading-relaxed">{p}</p>
+                  <p key={i} className="text-gray-600 text-lg flex items-start gap-2">
+                    {norma.id === 'plogging' && (
+                      <span className="mt-2.5 w-2 h-2 rounded-full bg-secondary shrink-0" />
+                    )}
+                    {p}
+                  </p>
                 ))}
               </div>
 
@@ -225,7 +231,7 @@ export default function GuiaVecino() {
                 </div>
               )}
 
-              {norma.destacado && (
+              {norma.destacado && norma.id !== 'plogging' && (
                 <div className="mt-auto bg-gray-900 text-white p-4 rounded-2xl text-xs font-bold text-center italic tracking-wide">
                   {norma.destacado}
                 </div>

@@ -60,11 +60,11 @@ export const DATA_RESIDUOS_SECOS: CronogramaResiduos[] = [
   { dia: "Viernes", zona: "Valle de San Javier." }
 ];
 export const DATA_RESIDUOS_HUMEDOS: CronogramaResiduos[] = [
-  { dia: "Lunes a Viernes", zona: "Antes de las 7:00 hs" }
+  { dia: "Lunes y Viernes", zona: "A partir de las 08:00 hs" }
 ];
 
 export const NOTA_RESIDUOS = "Los residuos secos deben depositarse después de las 12:00 hs. Para residuos especiales (chatarra o escombros), comunicarse con la Comuna.";
-export const NOTA_RESIDUOS_HUMEDOS = "FUERA DE ESTE HORARIO TE RECOMENDAMOS, NO SACAR TUS RESIDUOS PARA EVITAR BASURALES Y MULTAS";
+export const NOTA_RESIDUOS_HUMEDOS = "Respetar el día y horario establecido. De lo contrario, no sacar la basura para mantener la limpieza.";
 
 // --- 3. TEXTOS NORMATIVOS Y CONVIVENCIA ---
 export const DATA_NORMATIVAS: SeccionGuia[] = [
@@ -94,11 +94,17 @@ export const DATA_NORMATIVAS: SeccionGuia[] = [
   },
   {
     id: "plogging",
-    titulo: "Hacé Plogging en Raco",
+    titulo: "¡Juntos construimos un Raco más limpio!",
+    bajada: "Pequeñas acciones de cada uno hacen una gran diferencia para toda la comunidad.",
     contenido: [
+      "Cumplí con el horario de recolección de residuos establecido (Lunes y Viernes, a partir de las 8hs).",
+      "Si ves basura y podés levantarla, hacelo aunque no sea tuya.",
+      "No dejes los residuos en el suelo ni al alcance de perros u otros animales.",
+      "No uses el espacio público ni sitios baldíos como basural improvisado.",
       "Si te gusta ver a Raco limpio y salís a caminar, llevá una bolsa vacía y hacé Plogging (recoger botellas y residuos que veas en el camino).",
       "Nuestra comuna tiene más de 200 km de red vial y senderos. La única manera de mantenerla limpia es colaborando entre todos."
-    ]
+    ],
+    destacado: "¡Juntos construimos un Raco más limpio!"
   },
   {
     id: "estafas",
