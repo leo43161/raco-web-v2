@@ -1,5 +1,5 @@
 "use client";
-
+/* @/components/ActivitiesSection.tsx */
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {

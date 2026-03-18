@@ -1,3 +1,4 @@
+/* @/app/layout.tsx */
 import type { Metadata, Viewport } from "next";
 import { Poppins, Caveat } from "next/font/google";
 import "./globals.css";

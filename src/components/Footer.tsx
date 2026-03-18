@@ -1,5 +1,5 @@
 "use client";
-
+/* @/components/Footer.tsx */
 import Link from "next/link";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import IconWhatsapp from "../icon/whatsapp.svg";

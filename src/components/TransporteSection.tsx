@@ -1,5 +1,5 @@
 "use client";
-
+/* @/components/TransporteSection.tsx */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bus, MapPin, Clock, ArrowRight, Ticket, CalendarDays } from "lucide-react";

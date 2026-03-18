@@ -1,5 +1,5 @@
 "use client";
-
+/* @/app/veraneantes/page.tsx */
 import { motion } from "framer-motion";
 import TransporteSection from "@/components/TransporteSection";
 import {

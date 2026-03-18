@@ -1,4 +1,5 @@
 "use client";
+/* @/components/SmoothScroll.tsx */
 import { ReactLenis, type LenisRef } from 'lenis/react' // Nota: la doc dice lenis/react pero el paquete es lenis
 import { cancelFrame, frame } from 'framer-motion'
 import { useEffect, useRef } from 'react'
