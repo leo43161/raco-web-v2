@@ -5,7 +5,8 @@ import TransporteSection from "@/components/TransporteSection";
 import {
   ArrowLeft, Trash2, Bus, Phone, ShieldAlert,
   Flame, AlertTriangle, Leaf, HeartPulse,
-  Clock, MapPin, Info, CheckCircle2, Siren, CreditCard
+  Clock, MapPin, Info, CheckCircle2, Siren, CreditCard,
+  MessageCircle
 } from "lucide-react";
 import Link from "next/link";
 import {
@@ -111,6 +112,18 @@ export default function GuiaVecino() {
             <div className="mt-6 flex items-center justify-center gap-4 p-4 bg-blue-50 rounded-2xl border border-blue-100 text-blue-800">
               <Info />
               <p className="text-sm font-bold italic">Chatarra/Escombros: Pedir retiro al WhatsApp Comunal.</p>
+              <a
+                href={`https://wa.me/${TELEFONOS.comuna}?text=Hola,%20necesito%20coordinar%20el%20retiro%20de%20chatarra/escombros`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 flex items-center justify-center gap-3 p-4 bg-green-50 rounded-2xl border border-green-200 text-green-800 hover:bg-green-100 hover:scale-[1.02] transition-all shadow-sm group w-full md:w-max mx-auto"
+              >
+                <MessageCircle size={24} className="text-green-600 group-hover:scale-110 transition-transform" />
+                <div className="text-left">
+                  <span className="block text-sm font-black italic uppercase">Chatarra y Escombros</span>
+                  <span className="block text-xs font-medium opacity-90">Pedir retiro por WhatsApp Comunal</span>
+                </div>
+              </a>
             </div>
           </div>
         </section>

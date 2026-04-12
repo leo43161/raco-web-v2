@@ -14,84 +14,86 @@ import {
 } from "lucide-react";
 
 // --- DATA PROCESADA ---
-// (He pegado tu JSON aquí para que funcione directo. 
-// Idealmente esto iría en un archivo aparte, pero para este componente lo dejo autocontenido)
 const RAW_DATA = [
-  { category: "trekking", date: "30/12/2025", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "07:00 AM" },
-  { category: "caminata", date: "02/01/2026", activity: "Caminata Villa de Raco", location: "Casa de la Cultura, Ruta 341 Km 20", time: "07:00 AM" },
-  { category: "trekking", date: "03/01/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "07:00 AM" },
-  { category: "trekking", date: "06/01/2026", activity: "Trekking Siambón Cascada Río Noque", location: "Estación de Servicio Ruta 341 Km 25", time: "07:00 AM" },
-  { category: "trekking", date: "08/01/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20", time: "07:00 AM" },
-  { category: "caminata", date: "09/01/2026", activity: "Caminata Doña Pastora", location: "Monasterio Benedictino Ruta 341 Km 27", "time": "09:00 AM" },
-  { category: "trekking", date: "10/01/2026", activity: "Trekking Raco / Cascada Río Noque", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "feria", date: "10/01/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "feria", date: "10/01/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "feria", date: "11/01/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "feria", date: "11/01/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "09:00 AM" },
-  { category: "trekking", date: "13/01/2026", activity: "Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "caminata", date: "15/01/2026", activity: "Caminata Villa de Raco", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "caminata", date: "16/01/2026", activity: "Caminata Doña Pastora", location: "Monasterio Benedictino Ruta 341 Km 27", "time": "09:00 AM" },
-  { category: "trekking", date: "17/01/2026", activity: "Trekking Portezuelo / Raco", location: "Bo. Privado El Portezuelo", "time": "07:00 AM" },
-  { category: "feria", date: "17/01/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "feria", date: "17/01/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "feria", date: "18/01/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "feria", date: "18/01/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "09:00 AM" },
-  { category: "trekking", date: "20/01/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "07:00 AM" },
-  { category: "trekking", date: "22/01/2026", activity: "Trekking Cruz de Yampa", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "07:00 AM" },
-  { category: "caminata", date: "23/01/2026", activity: "Caminata Villa de Raco", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "feria", date: "24/01/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "feria", date: "24/01/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "trekking", date: "24/01/2026", activity: "Trekking La Sala / Río Grande", location: "Escuela Carrone, Ruta 340 Km 13", "time": "07:00 AM" },
-  { category: "feria", date: "25/01/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "feria", date: "25/01/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "trekking", date: "27/01/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "caminata", date: "29/01/2026", activity: "Caminata Villa / Rancho de Atahualpa", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "fiesta", date: "29/01/2026", activity: "Fiesta del Caballo Cerreño", location: "Ruta 341 Km 26", "time": "07:00 AM - 09:00 PM" },
-  { category: "caminata", date: "30/01/2026", activity: "Caminata Doña Pastora", location: "Monasterio Benedictino Ruta 341 Km 27", "time": "09:00 AM" },
-  { category: "fiesta", date: "30/01/2026", activity: "Fiesta del Caballo Cerreño", location: "Ruta 341 Km 26", "time": "07:00 AM - 09:00 PM" },
-  { category: "trekking", date: "31/01/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "fiesta", date: "31/01/2026", activity: "Fiesta del Caballo Cerreño", location: "Ruta 341 Km 26", "time": "07:00 AM - 04:00 AM" },
-  { category: "feria", date: "31/01/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "feria", date: "01/02/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "09:00 AM" },
-  { category: "trekking", date: "03/02/2026", activity: "Trekking Portezuelo / Raco", location: "Bo. Privado El Portezuelo", "time": "07:00 AM" },
-  { category: "trekking", date: "05/02/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "07:00 AM" },
-  { category: "caminata", date: "06/02/2026", activity: "Caminata Villa de Raco", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "feria", date: "07/02/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "feria", date: "07/02/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "trekking", date: "07/02/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "07:00 AM" },
-  { category: "feria", date: "08/02/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "feria", date: "08/02/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "09:00 AM" },
-  { category: "trekking", date: "10/02/2026", activity: "Trekking Siambón / Cascada del Río Noque", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "caminata", date: "12/02/2026", activity: "Caminata Rancho Atahualpa", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "caminata", date: "13/02/2026", activity: "Caminata Doña Pastora", location: "Monasterio Benedictino Ruta 341 Km 27", "time": "09:00 AM" },
-  { category: "feria", date: "14/02/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "feria", date: "14/02/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "trekking", date: "14/02/2026", activity: "Trekking Cascada Escondida", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "07:00 AM" },
-  { category: "feria", date: "15/02/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "09:00 AM" },
-  { category: "feria", date: "15/02/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "trekking", date: "17/02/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "trekking", date: "19/02/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "07:00 AM" },
-  { category: "caminata", date: "20/02/2026", activity: "Caminata Villa de Raco", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "feria", date: "21/02/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "feria", date: "21/02/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "trekking", date: "21/02/2026", activity: "Trekking Portezuelo / Raco", location: "Bo. Privado El Portezuelo", "time": "07:00 AM" },
-  { category: "feria", date: "22/02/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "09:00 AM" },
-  { category: "feria", date: "22/02/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "trekking", date: "24/02/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "trekking", date: "26/02/2026", activity: "Trekking Cruz de Yampa", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "07:00 AM" },
-  { category: "caminata", date: "27/02/2026", activity: "Caminata Doña Pastora", location: "Monasterio Benedictino Ruta 341 Km 27", "time": "09:00 AM" },
-  { category: "feria", date: "28/02/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "feria", date: "28/02/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "trekking", date: "28/02/2026", activity: "Trekking La Sala / Río Grande", location: "Escuela Carrone, Ruta 340 Km 13", "time": "07:00 AM" },
-  { category: "feria", date: "01/03/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "17:00 PM" },
-  { category: "feria", date: "01/03/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "17:00 PM" },
-  { category: "trekking", date: "03/03/2026", activity: "Trekking Siambón Cascada Río Noque", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "trekking", date: "05/03/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", "time": "07:00 AM" },
-  { category: "caminata", date: "06/03/2026", activity: "Caminata Villa de Raco", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "feria", date: "07/03/2026", activity: "Feria de Producción Local", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "09:00 AM" },
-  { category: "feria", date: "07/03/2026", activity: "Feria de Producción Local", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "09:00 AM" },
-  { category: "trekking", date: "07/03/2026", activity: "Trekking Cascada Escondida", location: "Club Juventud Unida, Ruta 340 Km 15", "time": "07:00 AM" },
-  { category: "trekking", date: "07/03/2026", activity: "Trekking Cruz de Yampa", location: "Casa de la Cultura, Ruta 341 Km 20", "time": "07:00 AM" }
+  // --- ABRIL 2026 ---
+  { category: "trekking", date: "11/04/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 AM" },
+  { category: "trekking", date: "11/04/2026", activity: "Trekking Portezuelo / Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 AM" },
+  { category: "caminata", date: "11/04/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "feria", date: "11/04/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "12/04/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 AM" },
+  { category: "feria", date: "12/04/2026", activity: "Feria de Producción Local", location: "Monasterio Benedictino, Ruta 341 Km 27", time: "10:30 - 17:00 HS" },
+  { category: "trekking", date: "18/04/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { category: "trekking", date: "18/04/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { category: "feria", date: "18/04/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "19/04/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "19/04/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "trekking", date: "25/04/2026", activity: "Vuelta al Maciel", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 HS" },
+  { category: "trekking", date: "25/04/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { category: "feria", date: "25/04/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "26/04/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "26/04/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  // --- MAYO 2026 ---
+  { category: "feria", date: "01/05/2026", activity: "Feria de Producción Local (Feriado)", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "01/05/2026", activity: "Paseo Atahualpa Yupanqui (Feriado)", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "trekking", date: "02/05/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 AM" },
+  { category: "trekking", date: "02/05/2026", activity: "Trekking Portezuelo / Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 AM" },
+  { category: "caminata", date: "02/05/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "feria", date: "02/05/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "03/05/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 AM" },
+  { category: "feria", date: "03/05/2026", activity: "Feria de Producción Local", location: "Monasterio Benedictino, Ruta 341 Km 27", time: "10:30 - 17:00 HS" },
+  { category: "trekking", date: "09/05/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { category: "trekking", date: "09/05/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { category: "feria", date: "09/05/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "10/05/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "10/05/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "trekking", date: "16/05/2026", activity: "Vuelta al Maciel", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 HS" },
+  { category: "trekking", date: "16/05/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { category: "feria", date: "16/05/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "17/05/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "17/05/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "feria", date: "25/05/2026", activity: "Feria de Producción Local (Feriado)", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "25/05/2026", activity: "Paseo Atahualpa Yupanqui (Feriado)", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 AM" },
+  { category: "trekking", date: "30/05/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 AM" },
+  { category: "trekking", date: "30/05/2026", activity: "Trekking Portezuelo / Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 AM" },
+  { category: "feria", date: "30/05/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "31/05/2026", activity: "Feria de Producción Local", location: "Monasterio Benedictino, Ruta 341 Km 27", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "31/05/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  // --- JUNIO 2026 ---
+  { category: "trekking", date: "06/06/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { category: "trekking", date: "06/06/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { category: "feria", date: "06/06/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "07/06/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "07/06/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 AM" },
+  { category: "trekking", date: "13/06/2026", activity: "Vuelta al Maciel", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 HS" },
+  { category: "trekking", date: "13/06/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { category: "feria", date: "13/06/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "14/06/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "14/06/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "trekking", date: "20/06/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 AM" },
+  { category: "trekking", date: "20/06/2026", activity: "Trekking Portezuelo / Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 AM" },
+  { category: "feria", date: "20/06/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "21/06/2026", activity: "Feria de Producción Local", location: "Monasterio Benedictino, Ruta 341 Km 27", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "21/06/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "trekking", date: "27/06/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { category: "trekking", date: "27/06/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { category: "feria", date: "27/06/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "28/06/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "28/06/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 AM" },
+  // --- JULIO 2026 ---
+  { category: "trekking", date: "04/07/2026", activity: "Vuelta al Maciel", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 HS" },
+  { category: "trekking", date: "04/07/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { category: "feria", date: "04/07/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "05/07/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "05/07/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "feria", date: "09/07/2026", activity: "Feria de Producción Local (Feriado)", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "09/07/2026", activity: "Paseo Atahualpa Yupanqui (Feriado)", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 AM" },
+  { category: "feria", date: "10/07/2026", activity: "Feria de Producción Local (Feriado)", location: "Monasterio Benedictino, Ruta 341 Km 27", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "10/07/2026", activity: "Paseo Atahualpa Yupanqui (Feriado)", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { category: "trekking", date: "11/07/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio, Ruta 341 Km 25", time: "09:00 AM" },
+  { category: "trekking", date: "11/07/2026", activity: "Trekking Portezuelo / Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 AM" },
+  { category: "feria", date: "11/07/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "feria", date: "12/07/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 - Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { category: "caminata", date: "12/07/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
 ];
 
 export default function ActivitiesSection() {
@@ -101,9 +103,8 @@ export default function ActivitiesSection() {
   const filtros = [
     { id: "todos", label: "Ver Todo", color: "bg-gray-800", text: "text-white" },
     { id: "trekking", label: "Trekking", color: "bg-green-100", text: "text-green-800", icon: Mountain },
-    { id: "caminata", label: "Caminatas", color: "bg-orange-100", text: "text-orange-800", icon: Footprints },
+    { id: "caminata", label: "Paseos", color: "bg-orange-100", text: "text-orange-800", icon: Footprints },
     { id: "feria", label: "Ferias", color: "bg-purple-100", text: "text-purple-800", icon: ShoppingBag },
-    { id: "fiesta", label: "Eventos", color: "bg-red-100", text: "text-red-800", icon: Music },
   ];
 
   // Helper para convertir string "DD/MM/YYYY" a objeto Date
@@ -125,17 +126,16 @@ export default function ActivitiesSection() {
     const dayNumber = date.getDate();
     return { dayName, dayNumber };
   };
-  const isAfter = (dateAtivity: Date) => {
+
+  const isAfter = (dateActivity: Date) => {
     const hoy = new Date();
     hoy.setHours(0, 0, 0, 0);
-    return dateAtivity >= hoy
-  }
+    return dateActivity >= hoy;
+  };
 
   // 1. Filtrar
   const filteredData = RAW_DATA.filter(
-    item => filtro === "todos" ?
-      true :
-      item.category === filtro
+    item => filtro === "todos" ? true : item.category === filtro
   ).filter(value => isAfter(parseDate(value.date)));
 
   // 2. Agrupar por Mes
@@ -161,10 +161,9 @@ export default function ActivitiesSection() {
   };
 
   const handleActivityClick = (actividad: typeof RAW_DATA[0]) => {
-    const numero = "5493816908950"; // Formato internacional para Argentina
+    const numero = "5493816908950";
     const mensaje = `Hola! Quisiera más información sobre la actividad "${actividad.activity}" del día ${actividad.date}.`;
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
     window.open(url, '_blank');
   };
 
@@ -175,7 +174,7 @@ export default function ActivitiesSection() {
       <div className="mb-4">
         <h2 className="text-2xl md:text-3xl font-black text-gray-800 mb-6 flex items-center gap-2">
           <Calendar className="text-naranja" />
-          Agenda 2026
+          Agenda Otoño - Invierno 2026
         </h2>
 
         {/* --- FILTROS HORIZONTALES (Scrollable en móvil) --- */}
@@ -195,7 +194,7 @@ export default function ActivitiesSection() {
                 {Icon && <Icon size={16} className={isActive ? "text-white" : f.text.replace("text-", "text-opacity-70 text-")} />}
                 {f.label}
               </button>
-            )
+            );
           })}
         </div>
       </div>
@@ -229,7 +228,6 @@ export default function ActivitiesSection() {
                         onClick={() => handleActivityClick(item)}
                         className="group flex bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 transition-all relative overflow-hidden cursor-pointer"
                       >
-
                         {/* Indicador de Color Lateral */}
                         <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${catColor}`} />
 
@@ -247,7 +245,7 @@ export default function ActivitiesSection() {
                               item.category === 'feria' ? 'bg-purple-50 text-purple-600' :
                                 'bg-orange-50 text-orange-600'
                             }`}>
-                            {item.category}
+                            {item.category === 'caminata' ? 'paseo' : item.category}
                           </span>
 
                           <h4 className="font-bold text-gray-800 leading-tight mb-1.5 line-clamp-2">
