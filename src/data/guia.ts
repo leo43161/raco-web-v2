@@ -53,15 +53,20 @@ export const DATA_CAPS: InfoCAPS[] = [
 export const DATA_AMBULANCIA = "Los 3 CAPS tienen servicio de ambulancia activo las 24 hs.";
 
 // --- 2. RECOLECCIÓN DE RESIDUOS (CRONOGRAMA SECOS) ---
+// SUSPENSION_ACTIVA: se vuelve false automáticamente al reconstruir después del 5/5
+const _FECHA_FIN_SUSPENSION = new Date("2026-05-05T00:00:00");
+export const SUSPENSION_ACTIVA = new Date() < _FECHA_FIN_SUSPENSION;
+export const AVISO_SUSPENSION_RESIDUOS = "Sin recolección esta semana. Retoma el Lunes 4/5 con el cronograma habitual.";
+
 export const DATA_RESIDUOS_SECOS: CronogramaResiduos[] = [
   { dia: "Martes", zona: "Desde el Río Grande hasta la Estación de Servicio." },
   { dia: "Miércoles", zona: "Desde la Estación de Servicio hasta el Cementerio." },
   { dia: "Jueves", zona: "Desde el Cementerio hasta Las Tuquitas." },
   { dia: "Viernes", zona: "Valle de San Javier." }
 ];
-export const DATA_RESIDUOS_HUMEDOS: CronogramaResiduos[] = [
-  { dia: "Lunes y Viernes", zona: "A partir de las 08:00 hs" }
-];
+export const DATA_RESIDUOS_HUMEDOS: CronogramaResiduos[] = SUSPENSION_ACTIVA
+  ? [{ dia: "Jueves 30/4", zona: "A partir de las 08:00 hs" }]
+  : [{ dia: "Lunes y Viernes", zona: "A partir de las 08:00 hs" }];
 
 export const NOTA_RESIDUOS = "Los residuos secos deben depositarse después de las 12:00 hs. Para residuos especiales (chatarra o escombros), comunicarse con la Comuna.";
 export const NOTA_RESIDUOS_HUMEDOS = "Respetar el día y horario establecido. De lo contrario, no sacar la basura para mantener la limpieza.";

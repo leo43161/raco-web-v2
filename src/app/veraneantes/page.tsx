@@ -17,7 +17,9 @@ import {
   TELEFONOS,
   NOTA_RESIDUOS,
   NOTA_RESIDUOS_HUMEDOS,
-  DATA_AMBULANCIA
+  DATA_AMBULANCIA,
+  SUSPENSION_ACTIVA,
+  AVISO_SUSPENSION_RESIDUOS
 } from "@/data/guia";
 
 export default function GuiaVecino() {
@@ -67,11 +69,16 @@ export default function GuiaVecino() {
             {/* Placa Grande de Horario */}
             <div className="bg-background p-8 rounded-2xl border-2 border-dashed border-naranja/30 text-center mb-6">
               <span className="block text-naranja font-black text-2xl md:text-4xl mb-2 uppercase italic">
-                Lunes y Viernes
+                {SUSPENSION_ACTIVA ? "jueves 30/4" : "Lunes y Viernes"}
               </span>
               <p className="text-xl md:text-2xl font-bold text-gray-700 leading-snug">
                 A partir de las 08:00 hs
               </p>
+              {SUSPENSION_ACTIVA && (
+                <p className="text-sm font-semibold text-gray-500 mt-2">
+                  Próxima recolección: Lunes 4/5
+                </p>
+              )}
             </div>
 
             {/* Advertencia */}
@@ -99,6 +106,14 @@ export default function GuiaVecino() {
             <p className="text-gray-600 mb-8 font-bold text-center md:text-left">
               {NOTA_RESIDUOS}
             </p>
+
+            {SUSPENSION_ACTIVA && (
+              <div className="bg-red-50 p-4 rounded-2xl border-l-4 border-red-500 mb-6">
+                <p className="text-red-800 font-bold text-center italic text-sm md:text-base">
+                  {AVISO_SUSPENSION_RESIDUOS}
+                </p>
+              </div>
+            )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {DATA_RESIDUOS_SECOS.map((item, idx) => (
