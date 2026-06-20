@@ -2,7 +2,7 @@
 /* @/components/TransporteSection.tsx */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bus, MapPin, Clock, ArrowRight, Ticket, CalendarDays } from "lucide-react";
+import { Bus, MapPin, Clock, ArrowRight, CalendarDays, CreditCard, QrCode, Wallet, Banknote, Phone, MessageCircle } from "lucide-react";
 
 // --- DATA PROVISTA POR EL USUARIO ---
 const DATA_TRANSPORTE = [
@@ -76,23 +76,53 @@ const DATA_TRANSPORTE = [
     id: "linea118",
     lineName: "Línea 118",
     route: "San Javier - Portezuelo",
+    company: "El Portezuelo SRL",
     color: "bg-green-600",
     lightColor: "bg-green-50",
+    contacts: { phone: "4257361", whatsapp: "3816408267" },
+    payments: {
+      subtitle: "Ya podés pagar con todos los medios de pago tu viaje",
+      methods: [
+        { icon: "card", label: "Tarjetas bancarias", detail: "Visa o Mastercard" },
+        { icon: "qr", label: "QR Virtual", detail: "Independencia" },
+        { icon: "wallet", label: "Billeteras virtuales", detail: "" }
+      ],
+      note: "Continúa también la opción de pago con efectivo"
+    },
     schedules: [
       {
         days: "Lunes a Viernes",
+        validFrom: "09/03/26",
         trips: [
           { origin: "Portezuelo", time: "06:00", destination: "Terminal" },
+          { origin: "Terminal", time: "12:45", destination: "Portezuelo" },
+          { origin: "Portezuelo", time: "14:30", destination: "Terminal" },
+          { origin: "Terminal", time: "16:15", destination: "Portezuelo" },
+          { origin: "Portezuelo", time: "18:00", destination: "Terminal" },
+          { origin: "Terminal", time: "20:00", destination: "Portezuelo" }
+        ]
+      },
+      {
+        days: "Sábados",
+        validFrom: "02/03/26",
+        trips: [
+          { origin: "Portezuelo", time: "07:00", destination: "Terminal" },
+          { origin: "Terminal", time: "12:00", destination: "Portezuelo" },
+          { origin: "Portezuelo", time: "14:00", destination: "Terminal" },
+          { origin: "Terminal", time: "16:00", destination: "Portezuelo" },
+          { origin: "Portezuelo", time: "18:00", destination: "Terminal" }
+        ]
+      },
+      {
+        days: "Domingos y Feriados",
+        validFrom: "02/03/26",
+        trips: [
           { origin: "Terminal", time: "08:00", destination: "Portezuelo" },
           { origin: "Portezuelo", time: "10:00", destination: "Terminal" },
           { origin: "Terminal", time: "12:00", destination: "Portezuelo" },
           { origin: "Portezuelo", time: "14:00", destination: "Terminal" },
-          { origin: "Terminal", time: "14:00", destination: "Portezuelo" },
-          { origin: "Portezuelo", time: "16:00", destination: "Terminal" },
           { origin: "Terminal", time: "16:00", destination: "Portezuelo" },
-          { origin: "Portezuelo", time: "18:00", destination: "Terminal" },
-          { origin: "Terminal", time: "18:00", destination: "Portezuelo" },
-          { origin: "Portezuelo", time: "21:00", destination: "Terminal" }
+          { origin: "Portezuelo", time: "18:00", destination: "Terminal" }
         ]
       }
     ]
@@ -106,6 +136,8 @@ export default function TransporteSection() {
   const activeLine = DATA_TRANSPORTE[activeLineIdx];
   // Aseguramos que el índice del día no se rompa al cambiar de línea
   const currentSchedule = activeLine.schedules[activeDayIdx] || activeLine.schedules[0];
+  // "validFrom" solo está presente en las líneas que lo informan (ej: 118)
+  const validFrom = (currentSchedule as { validFrom?: string }).validFrom;
 
   // LOGICA DE FILTRADO (IDA vs VUELTA)
   let ida: any[] = [];
@@ -179,6 +211,13 @@ export default function TransporteSection() {
             </button>
           ))}
         </div>
+
+        {/* --- VIGENCIA DEL HORARIO --- */}
+        {validFrom && (
+          <p className="mt-3 flex items-center gap-1.5 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+            <CalendarDays size={13} /> Vigente desde {validFrom}
+          </p>
+        )}
       </div>
 
       {/* --- GRILLA DE HORARIOS (IDA Y VUELTA) --- */}
@@ -234,6 +273,61 @@ export default function TransporteSection() {
           </div>
 
         </div>
+
+        {/* --- MEDIOS DE PAGO Y CONTACTO (solo líneas que lo informan) --- */}
+        {activeLine.payments && (
+          <div className="mt-6 bg-white rounded-3xl p-5 md:p-6 shadow-sm border border-gray-100">
+            <div className="flex items-center gap-3 mb-4">
+              <div className={`p-2 rounded-xl ${activeLine.lightColor} text-green-600`}>
+                <CreditCard size={20} />
+              </div>
+              <div>
+                <h4 className="text-sm font-black uppercase tracking-wide text-gray-800">Medios de Pago</h4>
+                <p className="text-[11px] font-medium text-gray-400 leading-tight">{activeLine.payments.subtitle}</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {activeLine.payments.methods.map((m: { icon: string; label: string; detail: string }, i: number) => (
+                <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-2xl p-3 border border-gray-100">
+                  <div className={`${activeLine.color} text-white p-2 rounded-lg shrink-0`}>
+                    {m.icon === "card" && <CreditCard size={16} />}
+                    {m.icon === "qr" && <QrCode size={16} />}
+                    {m.icon === "wallet" && <Wallet size={16} />}
+                  </div>
+                  <div className="leading-tight">
+                    <span className="block text-xs font-black text-gray-800">{m.label}</span>
+                    {m.detail && <span className="block text-[11px] font-medium text-gray-500">{m.detail}</span>}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {activeLine.payments.note && (
+              <div className="mt-3 flex items-center gap-2 text-xs font-bold text-gray-500">
+                <Banknote size={16} className="text-green-600 shrink-0" />
+                {activeLine.payments.note}
+              </div>
+            )}
+
+            {/* Contacto de la empresa */}
+            {activeLine.contacts && (
+              <div className="mt-5 pt-5 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center gap-3">
+                {activeLine.company && (
+                  <span className="text-xs font-black uppercase tracking-wider text-gray-400">{activeLine.company}</span>
+                )}
+                <div className="flex flex-wrap gap-3 sm:ml-auto">
+                  <a href={`tel:${activeLine.contacts.phone}`} className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 transition-colors px-4 py-2 rounded-xl border border-gray-100 text-gray-700 font-bold text-sm">
+                    <Phone size={16} className="text-green-600" /> {activeLine.contacts.phone}
+                  </a>
+                  <a href={`https://wa.me/549${activeLine.contacts.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-green-50 hover:bg-green-100 transition-colors px-4 py-2 rounded-xl border border-green-200 text-green-700 font-bold text-sm">
+                    <MessageCircle size={16} className="text-green-600" /> {activeLine.contacts.whatsapp}
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="mt-6 flex items-start gap-3 p-4 bg-white rounded-2xl border border-gray-100 text-xs text-gray-400 shadow-sm">
            <Clock size={16} className="shrink-0 mt-0.5" />
