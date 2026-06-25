@@ -43,7 +43,7 @@ const DATA_SERVICIOS: ServiceCategory[] = [
             { name: "Dorita Comidas", contactName: "Benita Dora Alderete", phone: "3816322082" },
             { name: "Sanguchería La Esquina Delivery", phone: "3816376896" },
             { name: "Parador 341", phone: "3813002335" },
-            { name: "Los Acacios Resto Bar", phone: "3812144158" },
+            { name: "Los Acacios Resto Bar", phone: "+54 3812144158" },
             { name: "El Patio de Gómez Comidas", phone: "3816397419" },
             { name: "Pastas Artesanales Rosita", phone: "3815500068" },
             { name: "Dulce Antojo", description: "Tortas, tartas, desayunos y más", phone: "3815500068" },
