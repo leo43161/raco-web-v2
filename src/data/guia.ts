@@ -71,6 +71,19 @@ export const DATA_RESIDUOS_HUMEDOS: CronogramaResiduos[] = SUSPENSION_ACTIVA
 export const NOTA_RESIDUOS = "Los residuos secos deben depositarse después de las 12:00 hs. Para residuos especiales (chatarra o escombros), comunicarse con la Comuna.";
 export const NOTA_RESIDUOS_HUMEDOS = "Respetar el día y horario establecido. De lo contrario, no sacar la basura para mantener la limpieza.";
 
+// --- FERIADO: REPROGRAMACIÓN PUNTUAL DE LA RECOLECCIÓN ---
+// FERIADO_ACTIVO se vuelve false automáticamente al reconstruir después del 25/11
+// (día siguiente a la recolección reprogramada), y la placa deja de mostrarse sola.
+const _FECHA_FIN_FERIADO = new Date("2026-11-25T00:00:00");
+export const FERIADO_ACTIVO = new Date() < _FECHA_FIN_FERIADO;
+export const AVISO_FERIADO_RESIDUOS = {
+  motivo: "Por el feriado nacional del",
+  diaFeriado: "Lunes 23 de Noviembre",
+  leyenda: "La recolección se realizará el",
+  diaReprogramado: "Martes 24 de Noviembre",
+  contacto: "Ante cualquier duda, comunicate con nosotros de Lunes a Viernes de 8 a 13 horas:"
+};
+
 // --- 3. TEXTOS NORMATIVOS Y CONVIVENCIA ---
 export const DATA_NORMATIVAS: SeccionGuia[] = [
   {
