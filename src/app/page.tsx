@@ -21,6 +21,7 @@ import Link from "next/link";
 import ActivitiesSection from "@/components/ActivitiesSection";
 import { TELEFONOS } from "@/data/guia";
 import ServicesSection from "@/components/ServicesSection";
+import AvisoFeriadoResiduos from "@/components/AvisoFeriadoResiduos";
 
 export default function Home() {
   return (
@@ -91,6 +92,11 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* --- AVISO FERIADO: primera card después del header (se oculta sola) --- */}
+      <div className="container mx-auto px-4 mt-6 relative z-30">
+        <AvisoFeriadoResiduos />
+      </div>
 
       {/* --- 2. ZONA DE ACCIÓN (TABLERO DE SERVICIOS) --- */}
       <section className="container mx-auto px-4 mt-4 relative z-30 mb-10">

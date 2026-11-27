@@ -70,6 +70,7 @@ const DATA_SERVICIOS: ServiceCategory[] = [
             { name: "Almacén La Morenita", location: "Ruta 340 Barrio Nueva Esperanza" },
             { name: "Almacén Dina", location: "El Siambón Km 30" },
             { name: "Restaurante Latitud Siambón", location: "El Siambón Km 27" },
+            { name: "Restobar Del Valle", phone: "+54 9 3814 42-6423" },
             { name: "Almacén Don Felix", location: "San Jose de Raco Km 23,5" },
             { name: "Estación de Servicio Atahualpa Yupanki", location: "Raco Km 24" },
             { name: "Kiosko Lopez", location: "Raco Km 16" }
@@ -109,9 +110,10 @@ const DATA_SERVICIOS: ServiceCategory[] = [
             // --- NUEVOS AGREGADOS ---
             { name: "Taller Mecánico", contactName: "Gabriel Centeno", phone: "3813360340", location: "Ruta 340 Km 19 (El Portezuelo - Valle de San Javier)" },
             { name: "Chapista Automotor / Herrería", contactName: "Carlos Olea", phone: "3815793024", location: "Ex Ruta 341 Km 17 (Al lado de vialidad)" },
-            { name: "Julio Carrazano", phone: "3816789472", location: "Atahualpa Yupanki Km 20, Raco" },
-            { name: "Hugo Erazo", phone: "3815467085", location: "Ruta 341 Km 29.5, El Siambón" },
-            { name: "Leo Olea", location: "Ruta 340 Km 19 (El Portezuelo - Valle de San Javier)" }
+            { name: "Mecánico a Domicilio", contactName: "Fabian Quiroga", phone: "+54 9 3812 02-8777" },
+            { name: "Gomero", contactName: "Julio Carrazano", phone: "3816789472", location: "Atahualpa Yupanki Km 20, Raco" },
+            { name: "Gomero", contactName: "Hugo Erazo", phone: "3815467085", location: "Ruta 341 Km 29.5, El Siambón" },
+            { name: "Gomero", contactName: "Leo Olea", location: "Ruta 340 Km 19 (El Portezuelo - Valle de San Javier)" }
         ]
     },
     {

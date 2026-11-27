@@ -72,10 +72,9 @@ export const NOTA_RESIDUOS = "Los residuos secos deben depositarse después de l
 export const NOTA_RESIDUOS_HUMEDOS = "Respetar el día y horario establecido. De lo contrario, no sacar la basura para mantener la limpieza.";
 
 // --- FERIADO: REPROGRAMACIÓN PUNTUAL DE LA RECOLECCIÓN ---
-// FERIADO_ACTIVO se vuelve false automáticamente al reconstruir después del 25/11
-// (día siguiente a la recolección reprogramada), y la placa deja de mostrarse sola.
-const _FECHA_FIN_FERIADO = new Date("2026-11-25T00:00:00");
-export const FERIADO_ACTIVO = new Date() < _FECHA_FIN_FERIADO;
+// La placa se oculta sola en el navegador del visitante a partir de esta fecha
+// (día siguiente a la recolección reprogramada). No hace falta redeployar.
+export const FECHA_FIN_FERIADO = new Date("2026-11-25T00:00:00");
 export const AVISO_FERIADO_RESIDUOS = {
   motivo: "Por el feriado nacional del",
   diaFeriado: "Lunes 23 de Noviembre",
