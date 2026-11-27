@@ -23,6 +23,7 @@ interface EventoBase {
   location: string;
   municipio: string;
   time: string;
+  badge?: string;
 }
 
 type Evento =
@@ -46,78 +47,131 @@ interface Ocurrencia extends EventoBase {
   badge?: string;
 }
 
-// --- DATA: EVENTOS TEMPORADA DE INVIERNO 2026 ---
+// --- DATA: CRONOGRAMA DE ACTIVIDADES RACO 2026 ---
 const RAW_DATA: Evento[] = [
-  // ============ RECURRENTES (zona) ============
-  {
-    kind: "recurrente", category: "feria", municipio: "El Cadillal",
-    activity: "Lagoferiantes", location: "Predio Lagoferiantes", time: "12:00 - 20:00 HS",
-    weekdays: [0, 1, 2, 3, 4, 5, 6], frecuencia: "Todos los días", hasta: "31/07/2026"
-  },
-  {
-    kind: "recurrente", category: "cultura", municipio: "San Javier",
-    activity: "Mapping: Cristo Resplandeciente", location: "Explanada del Cristo Bendicente", time: "19:30 y 20:00 HS",
-    weekdays: [0, 4, 5, 6], frecuencia: "Jue a Dom", hasta: "31/07/2026"
-  },
+  // ============ AGOSTO 2026 ============
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "22/08/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "22/08/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "22/08/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "23/08/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "23/08/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "29/08/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "29/08/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "29/08/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "30/08/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "30/08/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "30/08/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
 
-  // ============ RANGOS (varios días seguidos) ============
-  {
-    kind: "rango", category: "cultura", municipio: "SMT",
-    activity: "21° Festival Tucumán Cine", location: "Multisede", time: "Consultar horarios",
-    start: "28/07/2026", end: "02/08/2026"
-  },
+  // ============ SEPTIEMBRE 2026 ============
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "05/09/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "05/09/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "05/09/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "06/09/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "06/09/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "12/09/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "12/09/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "12/09/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "13/09/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "13/09/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "13/09/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "19/09/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "19/09/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "19/09/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "20/09/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "20/09/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "26/09/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "26/09/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "26/09/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "27/09/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "27/09/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "27/09/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
 
-  // ============ JULIO 2026 - RACO (Guías de Raco) ============
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "09/07/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "09:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "Raco", date: "10/07/2026", activity: "Paseo Huellas de Atahualpa", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "15:00 HS" },
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "11/07/2026", activity: "Trekking Portezuelo / Raco", location: "Barrio Privado Portezuelo, Ruta 340 Km 15", time: "09:00 HS" },
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "12/07/2026", activity: "Trekking Vuelta de los Miradores", location: "Estación de Servicio Atahualpa, Ruta 341 Km 25", time: "09:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "Raco", date: "13/07/2026", activity: "Caminata Huellas de Atahualpa", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "15:00 HS" },
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "14/07/2026", activity: "Trekking Rancho de Atahualpa", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "11:00 HS" },
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "15/07/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "10:00 HS" },
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "16/07/2026", activity: "Trekking Raco / Portezuelo", location: "Estación de Servicio Atahualpa, Ruta 341 Km 25", time: "09:00 HS" },
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "18/07/2026", activity: "Trekking Cruz de Yampa", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "08:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "Raco", date: "19/07/2026", activity: "Paseo Huellas de Atahualpa", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "15:00 HS" },
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "20/07/2026", activity: "Trekking Cumbres Chicas", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "09:00 HS" },
-  { kind: "puntual", category: "trekking", municipio: "Raco", date: "21/07/2026", activity: "Trekking Cascada Río Noque", location: "Bar Los Acacios, Ruta 340 Km 13", time: "14:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "Raco", date: "22/07/2026", activity: "Paseo Huellas de Atahualpa", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "15:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "Raco", date: "23/07/2026", activity: "Paseo Huellas de Atahualpa y Villa de Raco", location: "Casa de la Cultura, Ruta 341 Km 20,5", time: "14:00 HS" },
+  // ============ OCTUBRE 2026 ============
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "03/10/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "03/10/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "03/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "04/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "04/10/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "10/10/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "10/10/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "10/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "11/10/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "11/10/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "11/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "12/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS", badge: "Feriado · Día del Respeto a la Diversidad Cultural" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "12/10/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 y 16:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "17/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "17/10/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "18/10/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "18/10/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "18/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "24/10/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "24/10/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "24/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "25/10/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "25/10/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "25/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "31/10/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "31/10/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
 
-  // ============ EL CADILLAL ============
-  { kind: "puntual", category: "fiesta", municipio: "El Cadillal", date: "26/07/2026", activity: "Aniversario Lagoferiantes", location: "Predio Lagoferiantes", time: "15:00 HS" },
+  // ============ NOVIEMBRE 2026 ============
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "01/11/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "01/11/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "01/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "07/11/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "07/11/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "07/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "08/11/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "08/11/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "08/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "14/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "14/11/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "15/11/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "15/11/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "15/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "21/11/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "21/11/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "21/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "22/11/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "22/11/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "22/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "23/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS", badge: "Feriado · Día de la Soberanía Nacional" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "23/11/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 y 16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "28/11/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "28/11/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "28/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "29/11/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "29/11/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "29/11/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
 
-  // ============ SAN JAVIER ============
-  { kind: "puntual", category: "caminata", municipio: "San Javier", date: "24/07/2026", activity: "Caminata Guiada a la Virgen de Schoenstatt", location: "Salida desde el Complejo Polideportivo", time: "15:00 - 17:00 HS" },
-  { kind: "puntual", category: "cultura", municipio: "San Javier", date: "26/07/2026", activity: "5º Ciclo de Música al Atardecer: Bandas en vivo", location: "Complejo Turístico Cristo Bendicente", time: "16:30 - 18:30 HS" },
-  { kind: "puntual", category: "cultura", municipio: "San Javier", date: "01/08/2026", activity: "5º Ciclo de Música al Atardecer: Homenaje a la Pachamama", location: "Plaza Manos Unidas", time: "15:00 - 18:00 HS" },
-
-  // ============ TAFÍ VIEJO ============
-  { kind: "puntual", category: "caminata", municipio: "Tafí Viejo", date: "23/07/2026", activity: "Tour de los Museos", location: "Salida desde el Ente de Turismo", time: "09:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "Tafí Viejo", date: "24/07/2026", activity: "Monjes Benedictinos - El Cadillal", location: "Salida desde el Ente de Turismo", time: "09:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "Tafí Viejo", date: "25/07/2026", activity: "Salida al Monumento Nina Velárdez y Cruz Papa Francisco", location: "Hostería Atahualpa Yupanqui", time: "09:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "Tafí Viejo", date: "26/07/2026", activity: "City Tour - Tafí Viejo", location: "Salida desde el Ente de Turismo", time: "16:00 HS" },
-
-  // ============ SAN MIGUEL DE TUCUMÁN ============
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "23/07/2026", activity: "Circuito Histórico Cultural", location: "Parada del Bus Turístico (Laprida 50)", time: "11:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "23/07/2026", activity: "City Tour", location: "Parada del Bus Turístico (Laprida 50)", time: "16:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "24/07/2026", activity: "Guiado a pie", location: "Oficina de Turismo Municipal (Congreso y Crisóstomo Álvarez)", time: "10:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "24/07/2026", activity: "Circuito de la Ruta de la Empanada", location: "Parada del Bus Turístico (Laprida 50)", time: "12:00 HS" },
-  { kind: "puntual", category: "cultura", municipio: "SMT", date: "24/07/2026", activity: "Bus Recordar - Cementerio del Oeste", location: "Parada del Bus Turístico (Laprida 50)", time: "19:30 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "25/07/2026", activity: "Circuito de La Ciudadela", location: "Parada del Bus Turístico (Laprida 50)", time: "16:00 HS" },
-  { kind: "puntual", category: "cultura", municipio: "SMT", date: "25/07/2026", activity: "Clase de Folclore", location: "Plaza Temática (Congreso y San Lorenzo)", time: "17:00 HS" },
-  { kind: "puntual", category: "fiesta", municipio: "SMT", date: "25/07/2026", activity: "Festival de Folklore Electrónico", location: "Plaza Temática (Congreso y San Lorenzo)", time: "19:00 - 23:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "26/07/2026", activity: "Circuito Histórico Cultural", location: "Parada del Bus Turístico (Laprida 50)", time: "11:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "26/07/2026", activity: "Circuito del Sánguche de Milanesa", location: "Parada del Bus Turístico (Laprida 50)", time: "20:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "27/07/2026", activity: "Guiado a pie", location: "Oficina de Turismo Municipal (Congreso y Crisóstomo Álvarez)", time: "10:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "28/07/2026", activity: "Circuito Histórico Cultural", location: "Parada del Bus Turístico (Laprida 50)", time: "11:00 y 16:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "29/07/2026", activity: "Circuito Histórico Cultural", location: "Parada del Bus Turístico (Laprida 50)", time: "11:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "29/07/2026", activity: "City Tour", location: "Parada del Bus Turístico (Laprida 50)", time: "16:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "30/07/2026", activity: "Circuito Histórico Cultural", location: "Parada del Bus Turístico (Laprida 50)", time: "11:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "30/07/2026", activity: "City Tour", location: "Parada del Bus Turístico (Laprida 50)", time: "16:00 HS" },
-  { kind: "puntual", category: "cultura", municipio: "SMT", date: "30/07/2026", activity: "Cocina con Identidad Tucumana", location: "Plaza Temática (Congreso y San Lorenzo)", time: "20:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "31/07/2026", activity: "Guiado a pie", location: "Oficina de Turismo Municipal (Congreso y Crisóstomo Álvarez)", time: "10:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "31/07/2026", activity: "Circuito de la Ruta de la Empanada", location: "Parada del Bus Turístico (Laprida 50)", time: "12:00 HS" },
-  { kind: "puntual", category: "caminata", municipio: "SMT", date: "31/07/2026", activity: "Circuito Escultórico a Cielo Abierto", location: "Parada del Bus Turístico (Laprida 50)", time: "19:00 HS" },
+  // ============ DICIEMBRE 2026 ============
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "05/12/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "05/12/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "05/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "06/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "06/12/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "07/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS", badge: "Feriado · Día no laborable con fines turísticos" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "07/12/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 y 16:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "08/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS", badge: "Feriado · Inmaculada Concepción de María" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "08/12/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 y 16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "12/12/2026", activity: "Trekking Raco/Portezuelo", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "12/12/2026", activity: "Trekking Portezuelo/Raco", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "12/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "13/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "13/12/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "19/12/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "19/12/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "19/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "20/12/2026", activity: "Trekking Cumbres Chica", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "20/12/2026", activity: "Trekking Bosque de las Acacias", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "20/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "25/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS", badge: "Feriado · Navidad" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "25/12/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "09:00 y 16:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "26/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
+  { kind: "puntual", category: "caminata", municipio: "Raco", date: "26/12/2026", activity: "Paseo Atahualpa Yupanqui", location: "Casa de la Cultura, Ruta 341 Km 20", time: "16:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "27/12/2026", activity: "Trekking Vuelta al Maciel", location: "Estación de Servicio Ruta 341 Km 25", time: "09:00 HS" },
+  { kind: "puntual", category: "trekking", municipio: "Raco", date: "27/12/2026", activity: "Trekking Telégrafo", location: "Club Juventud Unida, Ruta 340 Km 15", time: "09:00 HS" },
+  { kind: "puntual", category: "feria", municipio: "Raco", date: "27/12/2026", activity: "Feria de Producción Local", location: "Ruta 341 Km 17 Control Policial de Raco", time: "10:30 - 17:00 HS" },
 ];
 
 // --- MOTOR DE OCURRENCIAS ---
@@ -144,6 +198,7 @@ function getOcurrencias(hoy: Date): Ocurrencia[] {
       location: ev.location,
       municipio: ev.municipio,
       time: ev.time,
+      badge: ev.badge,
     };
 
     if (ev.kind === "puntual") {
@@ -271,7 +326,7 @@ export default function ActivitiesSection() {
       <div className="mb-4">
         <h2 className="text-2xl md:text-3xl font-black text-gray-800 mb-6 flex items-center gap-2">
           <Calendar className="text-naranja" />
-          Agenda Otoño - Invierno 2026
+          Agenda de Actividades 2026
         </h2>
 
         {/* --- FILTROS HORIZONTALES (Scrollable en móvil) --- */}
